@@ -1,8 +1,10 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:latest
+  test_db:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: it2011_ch181_postgres
     environment:
       POSTGRES_USER: myuser
@@ -11,7 +13,5 @@ services:
     ports:
       - "5435:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
+      - ./:/app
+    entrypoint: ["/app/entrypoint.sh"]
