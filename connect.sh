@@ -1,2 +1,2 @@
 
-psql -U myuser -d mydatabase -h localhost -p 5435
+psql -U myuser -d mydatabase -h localhost -p 5432
